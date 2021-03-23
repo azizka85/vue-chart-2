@@ -7,7 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "vue": "^2.6.11"
+    "chart.js": "^2.9.4",
+    "vue": "^2.6.11",
+    "vue-chartjs": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-service": "~4.5.0",
