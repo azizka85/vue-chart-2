@@ -117,9 +117,9 @@ body {
   }
 
   .chart-content {
-    border-radius: 1rem;
-    height: 2.5rem;    
+    height: 2rem;        
     margin-top: 0.5rem;
+    border-radius: 1rem;
     overflow: hidden;
   }
 

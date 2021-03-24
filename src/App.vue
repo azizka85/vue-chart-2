@@ -20,7 +20,7 @@
         :key="i"          
       >
         <div class="chart-title">{{ item.title }}</div>
-        <chart class="chart-content" :data="item.data"></chart>
+        <chart class="chart-content" :data="item.data" :axisWidth="item.axisWidth"></chart>
         <div class="chart-label">
           <div>{{ item.min }}</div>
           <div>{{ item.max }}</div>
@@ -57,7 +57,7 @@ export default {
               color: '#77c3f7'
             }
           ],
-          axisWidth: 250
+          axisWidth: 0.25
         }, {
           title: 'Current Quarter',
           min: '$1.6K',
@@ -74,7 +74,7 @@ export default {
               color: '#77c3f7'
             }
           ],
-          axisWidth: 750
+          axisWidth: 0.6
         }
       ]
     }

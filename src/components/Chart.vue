@@ -1,11 +1,21 @@
 <script>
 import { HorizontalBar } from 'vue-chartjs';
+import { HorizontalLinePlugin } from '../plugins/chart/HorizontalLinePlugin';
 
 export default {
   extends: HorizontalBar,
-  props: ['data'],
+  props: ['data', 'axisWidth'],
   data: () => ({
     chartdata: {
+			lengthPercent: 0.4,
+			lineWidth: 2,
+			lineDash: [5],
+			lineColor: '#fff',
+			arrowLength: 20,
+			arrowWidth: 10,
+			arrowLineWidth: 2,
+			arrowColor: '#fff',
+			arrowBorderColor: '#000',      
       datasets: [] 
     },
     options: {
@@ -40,17 +50,20 @@ export default {
     }
   }),
   methods: {
-    setDatasets: function() {      
+    setDatasets: function() {  
+      this.chartdata.lengthPercent = this.axisWidth;    
       for(let item of this.data) {
         this.chartdata.datasets.push({
           backgroundColor: item.color,
-          data: [item.value]
+          data: [item.value],
+          barPercentage: 1,
+          categoryPercentage: 1
         });
       }
     }
   },
   mounted() {
-    // this.chartdata.datasets = this.getDatasets();
+    Chart.plugins.register(HorizontalLinePlugin);
     this.setDatasets();
     this.renderChart(this.chartdata, this.options);
   }
